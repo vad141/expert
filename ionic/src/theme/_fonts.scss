@@ -1,0 +1,10 @@
+$font-path: '../assets/fonts/MyriadPro';
+@font-face {
+    font-family: 'MyriadProBold';
+    src: url('#{$font-path}/MyriadProBold/MyriadProBold.eot');
+    src: url('#{$font-path}/MyriadProBold/MyriadProBold.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-path}/MyriadProBold/MyriadProBold.woff') format('woff'),
+         url('#{$font-path}/MyriadProBold/MyriadProBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

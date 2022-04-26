@@ -1,0 +1,139 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+@mixin ellipsis() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@mixin ellipsys-2-lines() {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical; 
+	overflow: hidden;
+}
+@mixin ellipsys-3-lines() {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical; 
+	overflow: hidden;
+}
+@import "theme/fonts.scss";
+
+$main-green: #0c9197;
+
+ion-header {
+	ion-toolbar {
+		--background: $main-green;
+		background: $main-green; 
+	}
+}
+ion-title {
+	--color: #fff;
+}
+ion-button {
+	&.as-header-icon {
+		ion-img {
+			height: 100%;
+		}
+		&.menu {
+			ion-img {
+				width: 26px;
+			}
+		}
+	}
+}
+ion-menu-button {
+	--color: #fff;
+}
+.menu-logo {
+	height: calc(260px * 304 / 475);
+	background-image: url(assets/images/menu-logo.png);
+	background-size: auto 120px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-color: #fff;
+}
+ion-menu {
+	ion-content {
+		--background: $main-green;
+		background: $main-green;
+		ion-list {
+			--ion-item-background: transparent;
+			ion-item {
+				--padding-start: 0;
+				--color: #fff;
+				--inner-border-width: 0 0 2px 0;
+				ion-label {
+					padding-left: 60px;
+					background-size: auto 25px;
+					background-repeat: no-repeat;
+					background-position: 20px 50%;
+					margin: 0;
+					min-height: 44px;
+					line-height: 44px;
+				}
+				&.menu-1 {
+					ion-label {
+						background-image: url(assets/images/menu-1.png);
+					}
+				}
+				&.menu-2 {
+					ion-label {
+						background-image: url(assets/images/menu-2.png);
+					}
+				}
+				&.menu-3 {
+					ion-label {
+						background-image: url(assets/images/menu-3.png);
+					}
+				}
+				&.menu-4 {
+					ion-label {
+						background-image: url(assets/images/menu-4.png);
+					}
+				}
+				&.menu-5 {
+					ion-label {
+						background-image: url(assets/images/menu-5.png);
+					}
+				}
+			}
+		}
+	}
+	ion-footer {
+		--border: none;
+		ion-toolbar {
+			--border-width: 0 !important;
+			--background: $main-green;
+			background: $main-green;
+			text-align: center;
+			color: #fff;
+		}
+	}
+}
