@@ -1,0 +1,12 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Выберите
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let item of items" (click)="closeModal(item)">{{item.short_text ? item.short_text : item.text}}</ion-item>
+    </ion-list>
+</ion-content>

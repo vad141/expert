@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+		<ion-title class="padding-left-right-button">
+            Обратная связь
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="feedbackForm">
+        <ion-list>
+		    <ion-item>
+		        <ion-label position="stacked">Тема</ion-label>
+		        <ion-select formControlName="subject" okText="Выбрать" cancelText="Отмена">
+		            <ion-select-option *ngFor="let subject of subjects" [value]="subject">{{subject}}</ion-select-option>
+		        </ion-select>
+		    </ion-item>
+		    <control-messages [control]="feedbackForm.controls.subject"></control-messages>
+		    <ion-item>
+		        <ion-label position="stacked">Сообщение</ion-label>
+		        <ion-textarea formControlName="message" rows="6"></ion-textarea>
+		    </ion-item>
+		    <control-messages [control]="feedbackForm.controls.message"></control-messages>
+		</ion-list>
+	</form>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-button expand="full" (click)="send()">
+            Отправить
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

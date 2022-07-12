@@ -19,12 +19,21 @@
     "@angular/platform-browser": "~13.2.2",
     "@angular/platform-browser-dynamic": "~13.2.2",
     "@angular/router": "~13.2.2",
+    "@ionic-native/app-version": "^5.36.0",
+    "@ionic-native/camera": "^5.36.0",
     "@ionic-native/core": "^5.36.0",
+    "@ionic-native/in-app-browser": "^5.36.0",
     "@ionic-native/keyboard": "^5.36.0",
+    "@ionic-native/social-sharing": "^5.36.0",
     "@ionic-native/splash-screen": "^5.36.0",
     "@ionic-native/sqlite": "^5.36.0",
     "@ionic-native/status-bar": "^5.36.0",
     "@ionic/angular": "^6.0.0",
+    "@ionic/cordova-builders": "^6.1.0",
+    "angular-cropperjs": "^1.0.2",
+    "cordova-android": "10.1.2",
+    "cropperjs": "^1.5.12",
+    "moment": "^2.29.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -45,6 +54,17 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
+    "cordova-plugin-app-version": "^0.1.14",
+    "cordova-plugin-camera": "^6.0.0",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-inappbrowser": "^5.0.0",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-ionic-webview": "^5.0.0",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-x-socialsharing": "^6.0.3",
+    "cordova-sqlite-storage": "^6.0.0",
+    "es6-promise-plugin": "^4.2.2",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
@@ -61,5 +81,22 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.4.4"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-app-version": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

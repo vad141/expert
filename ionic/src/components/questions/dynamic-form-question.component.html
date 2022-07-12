@@ -1,0 +1,28 @@
+<ion-item [formGroup]="form" [ngClass]="{'item-textarea item-label-stacked': question.controlType.indexOf('textareabox') !== -1, 'item-input': question.controlType.indexOf('textbox') !== -1}">
+	<ion-label position="stacked">
+		<span [innerHTML]="question.label"></span><span class="red" *ngIf="question.required">* </span>
+	</ion-label>
+	<div class="input-wrapper" [ngClass]="{'has-dictionary': question.controlType.indexOf('dictionary') !== -1}">
+		<ion-input *ngIf="question.controlType.indexOf('textbox') !== -1" autocomplete='off' autocorrect='off' autocapitalize='off' type="text" [placeholder]="question.placeholder" [id]="question.key" formControlName="{{question.key}}" [value]="question.value" [maxlength]="question.maxLength"></ion-input>
+
+		<ion-textarea *ngIf="question.controlType.indexOf('textareabox') !== -1" [id]="question.key" [value]="question.value"  [maxlength]="question.maxLength" [placeholder]="question.placeholder" formControlName="{{question.key}}"></ion-textarea>
+		<div *ngIf="question.controlType.indexOf('dictionary') !== -1">
+			<ion-button (click)="openDictionary($event, question)">
+				<ion-icon name="chevron-down-outline"></ion-icon>
+			</ion-button>
+		</div>
+	</div>
+	<control-messages [control]="form.controls[question.key]"></control-messages>
+	<div *ngIf="question.havePhotos">
+		<div class="photos-wrapper" *ngIf="photos[question.key] && photos[question.key].length" >
+		    <div *ngFor="let photo of photos[question.key];let idx = index" class="photo" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+		        <ion-button (click)="removePhoto(question, idx)" fill="clear">
+		            <ion-icon name="close"></ion-icon>
+		        </ion-button>
+		    </div>
+		</div>
+		<ion-button (click)="addPhoto(question)" expand="full" *ngIf="!photos[question.key] || (photos[question.key] && photos[question.key].length !== 4)">
+			Добавить фото<ion-icon name="camera-outline"></ion-icon>
+		</ion-button>
+	</div>
+</ion-item>

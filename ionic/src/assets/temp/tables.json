@@ -1,0 +1,145 @@
+[
+   {
+      "type":1,
+      "direction":"cell",
+      "fields":[
+         {
+            "fieldId":"1",
+            "name":"Описание",
+            "placeholder":"Укажите описание",
+            "havePhotos":true,
+            "fieldName":"description",
+            "required":true,
+            "field":"textareabox",
+            "max": 5000
+         }
+      ]
+   },
+   {
+      "type":2,
+      "direction":"row",
+      "fields":[
+         {
+            "fieldId":"2",
+            "name":"Конструкция",
+            "placeholder":"Укажите название конструктивного элемента",
+            "havePhotos":false,
+            "fieldName":"element",
+            "field":"textbox_dictionary",
+            "dictionary":"table_constructions",
+            "clear_field":[
+               "defect",
+               "event"
+            ],
+            "required":true,
+            "max": 500,
+            "cellWidth":13.8
+         },
+         {
+            "fieldId":"3",
+            "name":"Месторасположение дефекта или повреждения",
+            "placeholder":"Укажите месторасположение дефекта",
+            "havePhotos":false,
+            "fieldName":"placement",
+            "required":true,
+            "field":"textbox_autodictionary",
+            "max": 500,
+            "cellWidth":20.1
+         },
+         {
+            "fieldId":"4",
+            "name":"Описание дефекта или повреждения",
+            "placeholder":"Укажите описание дефекта или повреждения",
+            "havePhotos":true,
+            "fieldName":"defect",
+            "field":"textareabox_dictionary",
+            "dictionary":"table_defects_construction",
+            "depend_on":"element",
+            "clear_field":[
+               "event"
+            ],
+            "prefill":"event",
+            "prefill_dictionary":"table_events",
+            "required":true,
+            "max": 500,
+            "cellWidth":42.2
+         },
+         {
+            "fieldId":"5",
+            "name":"Нарушения",
+            "placeholder":"Укажите нарушения и ссылку на норматив",
+            "havePhotos":false,
+            "fieldName":"event",
+            "required":false,
+            "field":"textareabox",
+            "max": 500,
+            "cellWidth":19.5
+         }
+      ]
+   },
+   {
+      "type":3,
+      "direction":"row",
+      "fields":[
+         {
+            "fieldId":"6",
+            "name":"Объекты",
+            "placeholder":"Укажите название объекта",
+            "havePhotos":false,
+            "fieldName":"element",
+            "required":true,
+            "field":"textbox",
+            "max": 500,
+            "cellWidth":13.8
+         },
+         {
+            "fieldId":"7",
+            "name":"Месторасположение",
+            "placeholder":"Укажите месторасположение",
+            "havePhotos":false,
+            "fieldName":"placement",
+            "required":true,
+            "field":"textbox_dictionary",
+            "dictionary":"table_locations",
+            "max": 500,
+            "cellWidth":20.1
+         },
+         {
+            "fieldId":"8",
+            "name":"Категория замечаний",
+            "placeholder":"Укажите категорию замечания",
+            "havePhotos":false,
+            "fieldName":"category",
+            "required":true,
+            "field":"textbox_dictionary",
+            "dictionary":"table_categories",
+            "max": 500,
+            "cellWidth":42.2
+         },
+         {
+            "fieldId":"8",
+            "name":"Описание замечания",
+            "placeholder":"Укажите описание замечания",
+            "havePhotos":true,
+            "fieldName":"defect",
+            "required":true,
+            "field":"textbox_dictionary",
+            "dictionary":"table_defects_product",
+            "depend_on":"category",
+            "max": 500,
+            "cellWidth":42.2
+         },
+         {
+            "fieldId":"9",
+            "name":"Нарушения",
+            "placeholder":"Укажите нарушения и ссылку на норматив",
+            "havePhotos":false,
+            "fieldName":"event",
+            "required":false,
+            "field":"textareabox",
+            "max": 500,
+            "cellWidth":19.5
+         }
+      ]
+   }
+]

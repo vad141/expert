@@ -3,15 +3,64 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-		<ion-title class="no-padding-title">
+		<ion-title class="padding-left-right-button">
 			Отчеты
 		</ion-title>
         <ion-buttons slot="end">
-            <ion-button (click)="openAdd($event)" class="as-header-icon">
+            <ion-button (click)="beforeOpenAdd()" class="as-header-icon">
                 <ion-img src="assets/images/add.png"></ion-img>
             </ion-button>
         </ion-buttons>
 	</ion-toolbar>
 </ion-header>
 <ion-content>
+    <ion-list *ngIf="dataLoaded && data.length">
+        <ion-item-sliding *ngFor="let item of data" >
+            <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="remove(item)">Удалить</ion-item-option>
+            </ion-item-options>
+
+            <ion-item class="row">
+                <div class="left flex">
+                    <div class="top row">
+                        <div class="date">
+                            {{item.examinationDate}} {{item.examinationTime}}
+                        </div>
+                        <div class="edit-btn">
+                            <ion-button fill="clear" (click)="edit(item)">
+                                <ion-img src="assets/images/edit.png"></ion-img>
+                            </ion-button>
+                        </div>
+                        <div class="type flex">
+                            {{item.typeName}}
+                        </div>
+                    </div>
+                    <div class="name">
+                        {{item.reportName}}
+                    </div>
+                    <div class="address">
+                        {{item.address}}
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="table-btn">
+                        <ion-button fill="clear" (click)="openTable(item)">
+                            <ion-img src="assets/images/table.png"></ion-img>
+                        </ion-button>
+                    </div>
+                    <div class="send-btn">
+                        <ion-button fill="clear" (click)="sendReport(item)">
+                            <ion-img src="assets/images/send.png"></ion-img>
+                        </ion-button>
+                    </div>                
+                </div>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+    <div class="empty-with-btn" *ngIf="dataLoaded && data.length === 0">
+        Список пуст. Добавьте отчет. <br>
+        <ion-button (click)="beforeOpenAdd()" fill="clear">
+            <ion-img src="assets/images/add_blue.png"></ion-img>
+        </ion-button>
+    </div>
 </ion-content>

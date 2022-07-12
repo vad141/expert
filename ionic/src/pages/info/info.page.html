@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="padding-left-right-button">
+            О приложении
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="app-name">
+        Мобильное приложение<br>“Эксперт”
+    </div>
+    <div class="app-desc">
+        Приложение помогает эксперту проводить<br>
+        экспертизу и выполняет роль инструмента для<br>
+        упорядочения и структурирования собранных<br>
+        данных в готовый отчёт, который эксперт<br>
+        может направить себе на e-mail для<br>
+        дальнейшего редактирования и оформления<br>
+        отчёта по экспертизе.
+    </div>
+    <div class="version">
+        Версия: <b>{{appVersion}}</b>
+    </div>
+    <div class="version">
+        Сборка: <b>{{buildVersion}}</b>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-button expand="full" (click)="shareApp()">
+            Поделиться с друзьями
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

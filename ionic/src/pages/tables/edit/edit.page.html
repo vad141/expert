@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="goBack()" class="as-header-icon">
+                <ion-img src="assets/images/back.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+		<ion-title class="padding-left-right-button">
+			{{title}}
+		</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="submit()" class="as-header-icon">
+                <ion-img src="assets/images/save.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+    <div *ngIf="questionsReady">
+        <dynamic-form [questions]="questions" [fieldValues]="fieldValues" [photosValues]="photos"></dynamic-form>        
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-button expand="full" (click)="submit()" [disabled]="!allowSave">
+            Сохранить
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

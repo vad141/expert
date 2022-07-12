@@ -1,5 +1,7 @@
 {
   "name": "expert",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

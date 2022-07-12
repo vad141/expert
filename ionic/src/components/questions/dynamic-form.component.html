@@ -1,0 +1,5 @@
+<form [formGroup]="form">
+    <ion-list>
+        <df-question [question]="question" [photos]="photos" [form]="form" *ngFor="let question of questions" (onOpenDictionary)="openDictionary($event)" (onAddPhoto)="addPhoto($event)" (onRemovePhoto)='removePhoto($event)'></df-question>
+    </ion-list>
+</form>

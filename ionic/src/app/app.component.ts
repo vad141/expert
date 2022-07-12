@@ -1,12 +1,13 @@
 import { Component, enableProdMode } from '@angular/core';
 
-import { Platform, NavController } from '@ionic/angular';
+import { Platform, NavController, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 import {
     DbProvider,
+    Download,
 } from '../providers/providers';
 
 
@@ -23,6 +24,8 @@ export class AppComponent {
         private db: DbProvider,
         public navCtrl: NavController,
         private keyboard: Keyboard,
+        private menuCtrl: MenuController,
+        private download:Download
 	) {
 		this.initializeApp();
 	}
@@ -65,19 +68,26 @@ export class AppComponent {
 
             self.db.initDB()
             .then(() => {
-        		self.navCtrl.navigateRoot('reports');                
-                setTimeout(() => {
-                    if(self.platform.is('cordova')) {
-                        if(self.platform.is('ios')) {
-                            self.statusBar.styleDefault();
-                        } else {
-                            self.statusBar.styleBlackOpaque();
+                self.download.checkDownload()
+                .then(() => {
+            		self.navCtrl.navigateRoot('reports');
+                    setTimeout(() => {
+                        if(self.platform.is('cordova')) {
+                            if(self.platform.is('ios')) {
+                                self.statusBar.styleDefault();
+                            } else {
+                                self.statusBar.styleBlackOpaque();
+                            }
+                            self.splashScreen.hide();
                         }
-                        self.splashScreen.hide();
-                    }
-                }, 1000);
+                    }, 1000);                    
+                });
             });
         });
+    }
+    open(route) {
+        this.menuCtrl.close();
+        this.navCtrl.navigateRoot(route);
     }
 }
 //enableProdMode(); //TODO

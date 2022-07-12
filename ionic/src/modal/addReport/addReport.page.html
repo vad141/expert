@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="closeModal(false)" class="as-header-icon">
+                <ion-img src="assets/images/back.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Выберите вид отчета
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list class="base-list">
+        <ion-item *ngFor="let item of reports" (click)="closeModal(item)">
+            <ion-label>{{item.name}}</ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar class="ion-text-center ion-no-padding">
+        <p>Хотите добавить ваш вид отчета в это приложение? Оставьте заявку в разделе “Обратная связь”.</p>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,26 @@
+[{
+    "name": "Простой отчет",
+    "id": 1,
+    "actions": {
+        "tableName": "",
+        "default": true,
+        "type": 1
+    }
+}, {
+    "name": "Строительная экспертиза",
+    "id": 2,
+    "actions": {
+        "tableName": "",
+        "default": true,
+        "type": 2
+    }
+}, {
+    "name": "Товароведческая экпертиза",
+    "id": 3,
+    "actions": {
+        "tableName": "",
+        "default": true,
+        "type": 3
+    }
+	
+}]

@@ -14,7 +14,6 @@ export class Api {
     alert: any;
     errorDisplayed: boolean = false;
     repeatInterval: number;
-    restourantId: number = 38; //hardcoded for aps_dsk
     constructor(
         public http: HttpClient,
         public loadingCtrl: LoadingController,
@@ -124,7 +123,7 @@ export class Api {
                 self.hideMask()
                 .then(() => {
                     if(error.status === 401) {
-                        self.logout();
+                        //self.logout();
                     } else if(error.status == 0) {
                         self.toastNotify.error("Проверьте Ваше Интернет-соединение и повторите попытку.");
                     } else {
@@ -166,7 +165,7 @@ export class Api {
                     self.hideMask()
                     .then(() => {
                         if(error.status === 401) {
-                            self.logout();
+                            //self.logout();
                         } else if(error.status === 0) {
                             self.toastNotify.error("Извените, связь с сервером не удалось установить.");
                         } else {
@@ -268,97 +267,7 @@ export class Api {
                 resp ? (' , response: ' + xhr.statusText) : '',
                 method === 'POST' ? 'jsonData:' + JSON.stringify(params) : ''].join(' ');
         }
-        err = new Error(['ApsDskException:', message, xhrMessage].join(' '));
+        err = new Error(['ExpertException:', message, xhrMessage].join(' '));
         console.log(err);
-    }
-    logout(){
-        let self = this;
-        self.toastNotify.error("Сессия истекла, необходимо авторизоваться");
-        self.localStorage.get('auth', false, true).then((userData: any) => {
-            self.logoutRequest(userData.id)
-            .then(() => {
-                self.localStorage.set('auth', false, true);
-            }, () => {
-                self.localStorage.set('auth', false, true);
-            });
-        });
-    }
-    logoutRequest(userId: number){
-        return this.doRequest('GET', `client/waiter/customerlogout/${userId}`, {});   
-    }
-    phoneLogin(params: any, fbToken: string): Promise<any> {
-        return this.doRequestFormData('POST', `client/login/${this.restourantId}?registration_id=${fbToken}`, params);
-    }
-    createChat(params: any): Promise<any> {
-        return this.doRequestFormData('POST', `client/chat/add/${this.restourantId}`, params);
-    }
-    createMessage(params: any): Promise<any> {
-        return this.doRequestFormData('POST', `client/chatmessage/add`, params);
-    }
-    editMessage(params: any, id: number): Promise<any> {
-        return this.doRequestFormData('POST', `client/chatmessage/edit/${id}`, params);
-    }
-    getDeliveryZones(){
-        return this.doRequest('GET', `client/deliveryzone/list/${this.restourantId}`, {});   
-    }
-    getStocks(page: number, onPage: number){
-        return this.doRequest('GET', `client/sale/list/${this.restourantId}?page=${page}&onpage=${onPage}`, {});
-    }
-    getStockById(id: number){
-        return this.doRequest('GET', `sale/${id}`, {});
-    }
-    getTags(){
-        return this.doRequest('GET', `client/tag/list/${this.restourantId}`, {});   
-    }
-    getScreenBlocks(){
-        return this.doRequest('GET', `client/screenblock/list/${this.restourantId}?version=1`, {});   
-    }
-    getYoutube(page: number, onPage: number){
-        return this.doRequest('GET', `client/restevent/list/${this.restourantId}?page=${page}&onpage=${onPage}`, {});   
-    }
-    sendRequest(params: any): Promise<any> {
-        return this.doRequestFormData('POST', `client/review/add/${this.restourantId}`, params);
-    }
-    getAppInfo(){
-        return this.doRequest('GET', `client/mobileapp/${this.restourantId}`, {});   
-    }
-    getProjects(zone_id: number, tags: string){
-        return this.doRequest('GET', `client/dish/moreview/${zone_id == 0 ? 4 : zone_id}?restaurant_id=${this.restourantId}&tag_ids=${tags}&page=1&onpage=1000`, {});
-    }
-    getMainScreenProjectsFull(zone_id: number, tag_id: number){
-        return this.doRequest('GET', `client/dish/more/${zone_id == 0 ? 4 : zone_id}?restaurant_id=${this.restourantId}&tag_ids=${tag_id}&page=1&onpage=10`, {});
-    }
-    sendReservation(params: any): Promise<any> {
-        return this.doRequestFormData('POST', `client/reservation/add/${this.restourantId}`, params);
-    }
-    getBackendTime(){
-        return this.doRequest('GET', `client/time`, {});
-    }
-    getFav(){
-        return this.doRequest('GET', `client/favorite/list/${this.restourantId}`, {});
-    }
-    addFav(project_id: number){
-        return this.doRequest('GET', `client/favorite/add/${project_id}?restaurant_id=${this.restourantId}`, {});
-    }
-    removeFav(project_id: number){
-        return this.doRequest('GET', `client/favorite/delete/${project_id}?restaurant_id=${this.restourantId}`, {});
-    }
-    saveProfile(params: any){
-        return this.doRequestFormData('POST', `client/user/infosave/${this.restourantId}`, params);
-    }
-    getProfile(){
-        return this.doRequest('GET', `client/user/info/${this.restourantId}`, {});
-    }
-    getChatMessages(chat_id: number){
-        return this.doRequest('GET', `client/chatmessage/list/${chat_id}`, {});
-    }
-    markRead(chat_id: number){
-        return this.doRequest('GET', `client/chatmessage/markchat/${chat_id}`, {});
-    }
-    getChatFiles(chat_id: number){
-        return this.doRequest('GET', `client/chatmessage/listfiles/${chat_id}`, {});
-    }
-    deleteChatMessage(chat_id: number){
-        return this.doRequest('GET', `client/chatmessage/delete/${chat_id}`, {});
     }
 }

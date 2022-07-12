@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="padding-left-right-button">
+            Личный кабинет
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="save()" class="as-header-icon">
+                <ion-img src="assets/images/save.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="personalForm">
+        <ion-list>
+            <ion-item>
+                <ion-label position="stacked">Фамилия<span class="required">*</span></ion-label>
+                <ion-input formControlName="surname"></ion-input>
+            </ion-item>
+            <control-messages [control]="personalForm.controls.surname"></control-messages>
+            <ion-item>
+                <ion-label position="stacked">Имя<span class="required">*</span></ion-label>
+                <ion-input formControlName="name"></ion-input>
+            </ion-item>
+            <control-messages [control]="personalForm.controls.name"></control-messages>
+            <ion-item>
+                <ion-label position="stacked">Отчество<span class="required">*</span></ion-label>
+                <ion-input formControlName="secondName"></ion-input>
+            </ion-item>
+            <control-messages [control]="personalForm.controls.secondName"></control-messages>
+            <ion-item>
+                <ion-label position="stacked">Должность<span class="required">*</span></ion-label>
+                <ion-input formControlName="position"></ion-input>
+            </ion-item>
+            <control-messages [control]="personalForm.controls.position"></control-messages>
+            <ion-item>
+                <ion-label position="stacked">Вид отчета по умолчанию</ion-label>
+                <ion-select formControlName="type" okText="Выбрать" cancelText="Отмена">
+                    <ion-select-option *ngFor="let type of types" [value]="type.id">{{type.name}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-button expand="full" (click)="save()">
+            Сохранить
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

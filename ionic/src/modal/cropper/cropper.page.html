@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="closeModal(false)" class="as-header-icon">
+                <ion-img src="assets/images/back.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Редактирование фото
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <angular-cropper #angularCropper [cropperOptions]="config" [imageUrl]="image"></angular-cropper>
+</ion-content>
+<ion-footer>
+    <ion-toolbar class="ion-text-center ion-no-padding">
+        <ion-button (click)="rotateLeft()">
+            <ion-icon name="refresh-outline" class="tr-45"></ion-icon>
+        </ion-button>
+        <ion-button  (click)="doSave()">
+            Сохранить
+        </ion-button>
+        <ion-button (click)="rotateRight()">
+            <ion-icon name="refresh-outline"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

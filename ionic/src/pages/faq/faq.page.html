@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="padding-left-right-button">
+            Вопросы и ответы
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-accordion-group *ngFor="let item of data;let i = index" class="faq-accordion">
+        <ion-accordion [value]="i">
+            <ion-item slot="header">
+                <div>{{item.question}}</div>
+            </ion-item>
+            <ion-item slot="content">
+                <div>{{item.answer}}</div>
+            </ion-item>
+        </ion-accordion>
+    </ion-accordion-group>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+	<ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="goBack()" class="as-header-icon">
+                <ion-img src="assets/images/back.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+		<ion-title [ngClass]="{'padding-left-right2-button': dataLoaded && data.length, 'padding-left-right-button': !(dataLoaded && data.length)}">
+			{{title}}
+		</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="openAdd()" class="as-header-icon">
+                <ion-img src="assets/images/add.png"></ion-img>
+            </ion-button>
+            <ion-button (click)="switchOrder()" class="as-header-icon sorter" *ngIf="dataLoaded && data.length">
+                <ion-icon name="reorder-three-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="report-info" *ngIf="report">
+        {{report.reportName}}<br>
+        {{report.address}}
+    </div>
+    <ion-list *ngIf="dataLoaded && data.length">
+        <ion-reorder-group [disabled]="orderSwitch" (ionItemReorder)="orderChanged($event)">
+            <ion-item-sliding *ngFor="let item of data;let i = index" >
+                <ion-item-options side="end">
+                    <ion-item-option color="danger" (click)="remove(item)">Удалить</ion-item-option>
+                </ion-item-options>
+
+                <ion-item class="row" (click)="openEdit(item)">
+                    <div class="flex" style="width:100%">
+                        <div class="text">
+                            № записи {{i+1}}
+                        </div>
+                        <div *ngFor="let t of item.text; ">
+                            <div class="text ellipsis" *ngIf="t.text">
+                                {{t.text}}
+                            </div>
+                            <div *ngIf="t.photo" class="photo-inline" [ngStyle]="{'background-image': 'url(' + t.photo + ')', 'width.px': imgWidth, 'height.px': imgWidth}"></div>
+                        </div>
+                    </div>
+                    <ion-reorder slot="end"></ion-reorder>
+                </ion-item>
+            </ion-item-sliding>
+        </ion-reorder-group>
+    </ion-list>
+    <div class="empty-with-btn" *ngIf="dataLoaded && data.length === 0">
+        Список пуст. Добавьте запись. <br>
+        <ion-button (click)="openAdd()" fill="clear">
+            <ion-img src="assets/images/add_blue.png"></ion-img>
+        </ion-button>
+    </div>
+</ion-content>

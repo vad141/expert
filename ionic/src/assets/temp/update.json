@@ -1,0 +1,53 @@
+{
+    "files": [{
+        "fileId": "1",
+        "filePath": "",
+        "fileName": "reports.json"
+    },{
+        "fileId": "2",
+        "filePath": "",
+        "fileName": "tables.json"
+    },{
+        "fileId": "3",
+        "filePath": "table",
+        "fileName": "defects_construction.json"
+    },{
+        "fileId": "4",
+        "filePath": "table",
+        "fileName": "defects_product.json"      
+    },{
+        "fileId": "5",
+        "filePath": "table",
+        "fileName": "constructions.json"
+    },{
+        "fileId": "6",
+        "filePath": "table",
+        "fileName": "events.json"       
+    },{
+        "fileId": "7",
+        "filePath": "table",
+        "fileName": "categories.json"
+    },{
+        "fileId": "8",
+        "filePath": "table",
+        "fileName": "locations.json"
+    },{
+        "fileId": "9",
+        "filePath": "table",
+        "fileName": "remarks.json"      
+    },{     
+        "fileId": "10",
+        "filePath": "",
+        "fileName": "faq.json"
+    }],
+    "reports": "1",
+    "tables": "2",
+    "table_defects_construction": "3",
+    "table_defects_product": "4",
+    "table_constructions": "5",
+    "table_events": "6",
+    "table_categories": "7",
+    "table_locations": "8",
+    "table_remarks": "9",
+    "faq": "10"
+}

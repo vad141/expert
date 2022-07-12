@@ -4,19 +4,19 @@
 			<ion-content>
 				<div class="menu-logo"></div>
 				<ion-list>
-					<ion-item class="menu-1">
+					<ion-item class="menu-1" (click)="open('reports')">
                 		<ion-label>Отчеты</ion-label>
 					</ion-item>
-					<ion-item class="menu-2">
+					<ion-item class="menu-2" (click)="open('feedback')">
                 		<ion-label>Обратная связь</ion-label>
 					</ion-item>
-					<ion-item class="menu-3">
+					<ion-item class="menu-3" (click)="open('personal')">
                 		<ion-label>Личный кабинет</ion-label>
 					</ion-item>
-					<ion-item class="menu-4">
+					<ion-item class="menu-4" (click)="open('faq')">
                 		<ion-label>Вопросы и ответы</ion-label>
 					</ion-item>
-					<ion-item class="menu-5">
+					<ion-item class="menu-5" (click)="open('info')">
                 		<ion-label>О приложении</ion-label>
 					</ion-item>
 				</ion-list>
