@@ -21,7 +21,7 @@ import { NavController } from '@ionic/angular';
 })
 export class SendPage {
 	personalForm: FormGroup;
-    fieldsName: Array<string> = ['receiver1','receiver2','receiver3','receiver4','receiver5','receiver6'];
+    fieldsName: Array<string> = ['receiver1','receiver2','receiver3','receiver4','receiver5'];
     types: Array<any>;
     type: string;
     reportId: number;
@@ -50,8 +50,7 @@ export class SendPage {
             receiver2: ['', [ValidationService.emailValidator]],
             receiver3: ['', [ValidationService.emailValidator]],
             receiver4: ['', [ValidationService.emailValidator]],
-            receiver5: ['', [ValidationService.emailValidator]],
-            receiver6: ['', [ValidationService.emailValidator]]
+            receiver5: ['', [ValidationService.emailValidator]]
         });
     }
     ionViewDidEnter(){

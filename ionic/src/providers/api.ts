@@ -25,7 +25,7 @@ export class Api {
         let self = this;
     }
     getBackendUrl() {
-        return 'https://app1.nordcloudsoft.com/';
+        return 'https://app.epcp.ru/';
     }
     showMask(text) {
         let self = this;

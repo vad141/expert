@@ -9,6 +9,7 @@ export class ValidationService {
             'invalidEmailAddress': 'Неправильный формат email',
             'minlength': `Минимальное количество символов - ${validatorValue.requiredLength}`,
             'maxlength': `Максимальное количество символов - ${validatorValue.requiredLength}`,
+            'invalidSubject': 'Выберите тему сообщения'
         };
             
         return config[validatorName];
@@ -39,5 +40,17 @@ export class ValidationService {
         } else {
             return null;
         }
+    }
+    static notValueSubject(control) {
+        if(control.value) {
+            if (control.value !== 'Выберите тему сообщения') {
+                return null;
+            } else {
+                return { 'invalidSubject': true };
+            }
+        } else {
+            return null;
+        }
+        
     }
 }

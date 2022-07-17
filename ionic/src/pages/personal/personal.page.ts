@@ -32,7 +32,7 @@ export class PersonalPage {
 	}
 	ngOnInit() {
         let self = this;
-        self.types = [...[{name: 'Выбрать', id: '0'}], ...self.download.updateData.reports];
+        self.types = [...[{name: 'Выбрать вид по запросу', id: '0'}], ...self.download.updateData.reports];
         self.personalForm = self.formBuilder.group({
             surname: ['', [Validators.required, Validators.maxLength(33)]],
             name: ['', [Validators.required, Validators.maxLength(33)]],

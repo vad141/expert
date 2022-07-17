@@ -1,6 +1,6 @@
 import { Component, Input }		    	from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-
+import { ToastNotify } from '../../providers/providers';
 
 @Component({
 	selector: 'dictionary-page',
@@ -10,11 +10,15 @@ import { PopoverController } from '@ionic/angular';
 export class DictionaryPopover {
 	@Input() items: Array<any> = [];
 	constructor(
-		public modalCtrl: PopoverController
+		public modalCtrl: PopoverController,
+		private toastNotify: ToastNotify,
 	) {
 		let self = this;
 	}
 	closeModal(dismiss) {
         this.modalCtrl.dismiss(dismiss);
+    }
+    showFull(text){
+    	this.toastNotify.success(text, 10000);
     }
 }

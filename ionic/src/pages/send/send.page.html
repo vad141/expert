@@ -15,39 +15,34 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="content-padding-with-bg">
     <form [formGroup]="personalForm">
         <ion-list>
             <ion-item>
-                <ion-label position="stacked">Получатель 1<span class="required">*</span></ion-label>
-                <ion-input formControlName="receiver1"></ion-input>
+                <ion-label position="stacked">Email адрес 1<span class="required">*</span></ion-label>
+                <ion-input placeholder="Введите email-адрес 1" formControlName="receiver1"></ion-input>
             </ion-item>
             <control-messages [control]="personalForm.controls.receiver1"></control-messages>
             <ion-item>
-                <ion-label position="stacked">Получатель 2</ion-label>
-                <ion-input formControlName="receiver2"></ion-input>
+                <ion-label position="stacked">Email адрес 2</ion-label>
+                <ion-input placeholder="Введите email-адрес 2" formControlName="receiver2"></ion-input>
             </ion-item>
             <control-messages [control]="personalForm.controls.receiver2"></control-messages>
             <ion-item>
-                <ion-label position="stacked">Получатель 3</ion-label>
-                <ion-input formControlName="receiver3"></ion-input>
+                <ion-label position="stacked">Email адрес 3</ion-label>
+                <ion-input  placeholder="Введите email-адрес 3" formControlName="receiver3"></ion-input>
             </ion-item>
             <control-messages [control]="personalForm.controls.receiver3"></control-messages>
             <ion-item>
-                <ion-label position="stacked">Получатель 4</ion-label>
-                <ion-input formControlName="receiver4"></ion-input>
+                <ion-label position="stacked">Email адрес 4</ion-label>
+                <ion-input  placeholder="Введите email-адрес 4" formControlName="receiver4"></ion-input>
             </ion-item>
             <control-messages [control]="personalForm.controls.receiver4"></control-messages>
             <ion-item>
-                <ion-label position="stacked">Получатель 5</ion-label>
-                <ion-input formControlName="receiver5"></ion-input>
+                <ion-label position="stacked">Email адрес 5</ion-label>
+                <ion-input  placeholder="Введите email-адрес 5" formControlName="receiver5"></ion-input>
             </ion-item>
             <control-messages [control]="personalForm.controls.receiver5"></control-messages>
-            <ion-item>
-                <ion-label position="stacked">Получатель 6</ion-label>
-                <ion-input formControlName="receiver6"></ion-input>
-            </ion-item>
-            <control-messages [control]="personalForm.controls.receiver6"></control-messages>
         </ion-list>
     </form>
 </ion-content>

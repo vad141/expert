@@ -6,9 +6,14 @@
         <ion-title class="padding-left-right-button">
             Вопросы и ответы
         </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="goHome()" class="as-header-icon">
+                <ion-img src="assets/images/close.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="content-padding-with-bg">
     <ion-accordion-group *ngFor="let item of data;let i = index" class="faq-accordion">
         <ion-accordion [value]="i">
             <ion-item slot="header">

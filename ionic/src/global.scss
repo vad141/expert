@@ -67,6 +67,7 @@ ion-title {
 }
 ion-button {
 	&.as-header-icon {
+		padding: 5px;
 		ion-img {
 			height: 100%;
 		}
@@ -98,9 +99,10 @@ ion-menu {
 		ion-list {
 			--ion-item-background: transparent;
 			ion-item {
-				--padding-start: 0;
+				--padding-start: 0 !important;
 				--color: #fff;
 				--inner-border-width: 0 0 2px 0;
+				--border-color:  #fff;
 				ion-label {
 					padding-left: 60px;
 					background-size: auto 25px;
@@ -141,11 +143,13 @@ ion-menu {
 	ion-footer {
 		--border: none;
 		ion-toolbar {
-			--border-width: 0 !important;
-			--background: $main-green;
-			background: $main-green;
-			text-align: center;
-			color: #fff;
+			&:first-of-type {
+				--border-width: 0 !important;
+				--background: $main-green !important;
+				background: $main-green;
+				text-align: center;
+				color: #fff;
+			}
 		}
 	}
 }
@@ -155,6 +159,9 @@ ion-menu {
     top: calc(50% - 35px);
     left: 0;
     right: 0;
+    ion-button {
+    	--color:  $main-green;
+    }
     ion-img {
     	width:  32px;
     	height:  32px;
@@ -195,11 +202,6 @@ ion-menu {
 		--padding-end: 5px;
 	}
 }
-.faq-accordion {
-	[slot="header"] {
-		border-bottom:  1px solid grey;
-	}
-}
 .report-info {
 	background-color: $main-grey;
 	border-bottom:  1px solid $main-border-grey;
@@ -207,24 +209,23 @@ ion-menu {
 	text-align: center;
 	padding: 6px 0;
 }
-.input-wrapper {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	ion-input, ion-textarea {
-		width: 100%;
-		flex: 1;
-	}
-	&.has-dictionary {
-		ion-button {
-			width: 50px;
-		}
-	}
-}
 dictionary-page {
 	ion-content {
 		max-height: 200px;
+		ion-label {
+			white-space: normal !important;
+			--padding-start: 0;
+		    --padding-end: 0;
+		    padding: 0 8px;
+		}
+	}
+	.as-info {
+		margin: 0;
+		margin-inline: 0px;
+	    --padding-start: 0;
+	    --padding-end: 0;
+	    padding: 0 15px;
+	    width: 50px;
 	}
 }
 .photos-wrapper {
@@ -289,3 +290,200 @@ ion-popover {
 	padding-left: 52px;
 	padding-right: 104px;
 }
+ion-toast {
+	--background: rgba(0,0,0,0.9) !important;
+}
+app-reports {
+	ion-item-sliding {
+		margin-bottom: 8px;
+		border-bottom: 1px solid #d6d6d6;
+		border-top: 1px solid #d6d6d6;
+		ion-item {
+		    align-items: baseline !important;
+			--inner-border-width: 0px;
+			--color: #1f1f1f;
+			font-family: 'Myriad Pro';
+			font-weight: normal;
+		    font-style: normal;
+		    font-size: 12px;
+			.date {
+				text-decoration: underline;
+			}
+		}
+	}
+	ion-list {
+		background: #edeef0 !important;
+	}
+}
+.app-name {
+	font-family: 'Myriad Pro';
+	font-weight: normal;
+    font-style: normal;
+    font-size: 21px;
+    text-align: center;
+    margin: 50px 0;
+}
+.app-desc {
+	font-family: 'Myriad Pro';
+	font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.version {
+	font-family: 'Myriad Pro';
+	font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    text-align: center;	
+    color: $main-green;
+    margin: 10px 0;
+}
+.content-padding-with-bg {
+	--padding-top: 8px;
+    --padding-bottom: 8px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --background: #edeef0;
+}
+.content-with-bg {
+	--background: #edeef0;
+}
+ion-accordion-group {
+	border:  1px solid #dbdbdb;
+	border-bottom-width: 0px;
+	ion-item {
+		font-family: 'Myriad Pro';
+		font-weight: normal;
+	    font-style: normal;
+	    font-size: 16px;
+		--color: #010101;
+
+	    --padding-start: 0px;
+    	--inner-padding-end: 0px;
+    	padding: 10px;
+	}
+	
+	[slot="content"] {
+		--inner-border-width: 0;
+	}
+	ion-accordion {
+		&.accordion-expanded {
+			[slot="header"] {
+				background-color: #d9d9d9;
+				--background: #d9d9d9;
+			}
+		}
+	}
+}
+.required {
+	font-family: 'Myriad Pro';
+	font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+	color: #ff002a;	
+}
+control-messages, .custom-error{
+	min-height: 18px;
+	height: 18px;
+	position: relative;
+    width: 100%;
+    display: block;
+    div {
+    	font-family: 'Myriad Pro';
+		font-weight: normal;
+	    font-style: normal;
+	    font-size: 14px;
+    	text-align: center;
+    	min-height: 18px;
+		line-height: 18px;
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+		color: #0c9197;
+    }
+}
+.empty-control-messages {
+	min-height: 16px;
+}
+form {
+	ion-item {
+		--background: #edeef0;
+		--inner-border-width: 0;
+	}
+	ion-select, ion-textarea {
+		background: #fff !important;
+		padding: 8px;
+		border-radius: 6px;
+	}
+	ion-input {
+		--padding-start:  8px!important;
+		--padding-end:  8px!important;
+		background: #fff !important;
+		border-radius: 6px;
+	}
+
+	ion-label {
+		white-space: normal !important;
+		--color: #4e4e4e !important;
+		font-family: 'Myriad Pro';
+		font-weight: normal;
+	    font-style: normal;
+	    font-size: 14px !important;
+	    padding: 0 8px;
+	    &.has-dictionary {
+	    	margin-right: 58px;
+	    	min-height: 28px;
+	    }
+	}
+	control-messages {
+		background: #edeef0;
+	}
+	.as-value{
+		&ion-button {
+			background: #fff !important;
+			border-radius: 6px;
+		}
+	}
+	.as-select {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 50px;
+		margin: 0;
+		margin-inline: 0px;
+	    --padding-start: 0;
+	    --padding-end: 0;
+	    padding: 0 23px;
+
+	}
+}
+ion-footer {
+    ion-toolbar {
+    	&:first-of-type {
+    		--border-width: 0 !important;
+    		--background: #edeef0 !important;
+    	}
+        ion-button {
+        	--background: #0c9197;
+        	--background-activated: #226164;
+    		--background-focused: #226164;
+    		border-radius: 10px;
+    		overflow: hidden;
+        }
+    }	
+}
+.photos-add-button {
+	--background: #0c9197;
+	--background-activated: #226164;
+	--background-focused: #226164;
+	border-radius: 10px;
+	overflow: hidden;
+}
+/*.faq-accordion {
+	[slot="header"] {
+		border-bottom:  1px solid grey;
+	}
+}
+*/

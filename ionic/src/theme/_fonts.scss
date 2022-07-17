@@ -1,10 +1,112 @@
 $font-path: '../assets/fonts/MyriadPro';
+
 @font-face {
-    font-family: 'MyriadProBold';
-    src: url('#{$font-path}/MyriadProBold/MyriadProBold.eot');
-    src: url('#{$font-path}/MyriadProBold/MyriadProBold.eot?#iefix') format('embedded-opentype'),
-         url('#{$font-path}/MyriadProBold/MyriadProBold.woff') format('woff'),
-         url('#{$font-path}/MyriadProBold/MyriadProBold.ttf') format('truetype');
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-SemiboldIt.eot');
+    src: url('#{$font-path}/MyriadPro-SemiboldIt.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-SemiboldIt.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-SemiboldIt.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-SemiboldIt.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-Black.eot');
+    src: url('#{$font-path}/MyriadPro-Black.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-Black.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-Black.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-Semibold.eot');
+    src: url('#{$font-path}/MyriadPro-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-Semibold.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-Semibold.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-BlackIt.eot');
+    src: url('#{$font-path}/MyriadPro-BlackIt.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-BlackIt.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-BlackIt.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-BlackIt.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-Regular.eot');
+    src: url('#{$font-path}/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-Regular.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-Regular.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-Bold.eot');
+    src: url('#{$font-path}/MyriadPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-Bold.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-Bold.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-BoldIt.eot');
+    src: url('#{$font-path}/MyriadPro-BoldIt.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-BoldIt.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-BoldIt.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-BoldIt.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-LightIt.eot');
+    src: url('#{$font-path}/MyriadPro-LightIt.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-LightIt.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-LightIt.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-LightIt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-It.eot');
+    src: url('#{$font-path}/MyriadPro-It.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-It.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-It.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-It.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('#{$font-path}/MyriadPro-Light.eot');
+    src: url('#{$font-path}/MyriadPro-Light.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MyriadPro-Light.woff2') format('woff2'),
+        url('#{$font-path}/MyriadPro-Light.woff') format('woff'),
+        url('#{$font-path}/MyriadPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+

@@ -70,7 +70,6 @@ export class GlobalService {
         let self = this;
         self.http.get('assets/json/git_curr_version.json')
         .subscribe(data => {
-            debugger
             self.gitVersion = data;
             if(self.platform.is('cordova')) {
                 self.appVersion.getVersionNumber().then(function (version) {

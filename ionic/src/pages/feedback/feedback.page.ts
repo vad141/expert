@@ -6,24 +6,26 @@ import { ValidationService } from '../../services/validation';
 import {
 	GlobalService,
 } from '../../providers/providers';
+import { NavController } from '@ionic/angular';
 @Component({
 	selector: 'app-feedback',
 	templateUrl: 'feedback.page.html',
 	styleUrls: ['feedback.page.scss'],
 })
 export class FeedbackPage {
-	subjects: Array<string> = ['Ошибка', 'Предложения по улучшению', 'Отзыв', 'Замечание', 'Добавить отчёт', 'Партнерство'];
+	subjects: Array<string> = ['Выберите тему сообщения', 'Ошибка', 'Предложения по улучшению', 'Отзыв', 'Замечание', 'Добавить отчёт', 'Партнерство'];
 	feedbackForm: FormGroup;
     fieldsName: Array<string> = ['subject', 'message'];
     constructor (
     	public rootScope: GlobalService,
     	public formBuilder: FormBuilder,
+        public navCtrl: NavController,
 	) {
 	}
 	ngOnInit() {
         let self = this;
         self.feedbackForm = self.formBuilder.group({
-            subject: ['', [Validators.required]],
+            subject: [self.subjects[0], [Validators.required, ValidationService.notValueSubject]],
             message: ['', [Validators.required, Validators.maxLength(500)]]
         });
     }
@@ -37,5 +39,8 @@ export class FeedbackPage {
             console.log('params : ', params);
             self.rootScope.sendFeedback(params);
         }
+    }
+    goHome(){
+        this.navCtrl.navigateRoot('reports');
     }
 }

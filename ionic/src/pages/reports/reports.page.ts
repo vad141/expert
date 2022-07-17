@@ -58,7 +58,7 @@ export class ReportsPage {
         let self = this;
         self.localStorage.get('user', false, true)
         .then((userData: any) => {
-            if(userData) {
+            if(userData && userData.type != 0) {
                 self.navCtrl.navigateForward(`reports/${userData.type}/0`);
             } else {
                 self.openAdd();           

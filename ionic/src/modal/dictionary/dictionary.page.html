@@ -7,6 +7,13 @@
 </ion-header>
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let item of items" (click)="closeModal(item)">{{item.short_text ? item.short_text : item.text}}</ion-item>
+        <ion-item *ngFor="let item of items">
+            <ion-label (click)="closeModal(item)">
+                {{item.short_text ? item.short_text : item.text}}
+            </ion-label>
+            <ion-button class="as-info" (click)="showFull(item.text)" size="default" fill="clean" *ngIf="item.short_text">
+                <ion-img src="assets/images/info.png"></ion-img>
+            </ion-button>
+        </ion-item>
     </ion-list>
 </ion-content>

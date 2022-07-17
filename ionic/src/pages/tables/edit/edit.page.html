@@ -15,7 +15,7 @@
         </ion-buttons>
 	</ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="content-padding-with-bg">
     <div *ngIf="questionsReady">
         <dynamic-form [questions]="questions" [fieldValues]="fieldValues" [photosValues]="photos"></dynamic-form>        
     </div>
