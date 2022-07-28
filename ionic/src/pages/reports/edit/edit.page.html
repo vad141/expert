@@ -31,7 +31,11 @@
             
             <ion-item>
                 <ion-label position="stacked">Дата экспертизы<span class="required">*</span></ion-label>
-                <ion-button fill="clear" expand="full" id="open-date-select" class="as-value">{{formatDate(reportForm.controls.examinationDate.value)}}</ion-button>
+                <ion-button fill="clear" expand="full" id="open-date-select" class="as-value">
+                    <span>
+                        {{formatDate(reportForm.controls.examinationDate.value)}}                        
+                    </span>
+                </ion-button>
                 <ion-popover trigger="open-date-select" size="fixed" class="popover-date-time">
                     <ng-template>
                         <ion-datetime presentation="date" cancelText="Отмена" doneText="Выбрать" formControlName="examinationDate" displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" min="{{minDate}}" max="{{maxDate}}"></ion-datetime>
@@ -40,7 +44,11 @@
             </ion-item>
             <ion-item>
                 <ion-label position="stacked">Время проведения экспертизы<span class="required">*</span></ion-label>
-                <ion-button fill="clear" expand="full" id="open-time-select" class="as-value">{{reportForm.controls.examinationTime.value}}</ion-button>
+                <ion-button fill="clear" expand="full" id="open-time-select" class="as-value">
+                    <span>
+                        {{reportForm.controls.examinationTime.value}}
+                    </span>
+                </ion-button>
                 <ion-popover trigger="open-time-select" size="fixed" class="popover-date-time">
                     <ng-template>
                         <ion-datetime presentation="time" cancelText="Отмена" doneText="Выбрать" formControlName="examinationTime" displayFormat="HH:mm" pickerFormat="HH:mm"></ion-datetime>

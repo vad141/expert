@@ -10,9 +10,11 @@ import {
     Download,
     TablesDb,
     ReportsDb,
+    Api,
 } from '../../providers/providers';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import * as moment from 'moment';
 
 @Component({
 	selector: 'app-send',
@@ -31,6 +33,7 @@ export class SendPage {
     constructor (
     	private localStorage: LocalStorage,
     	private download: Download,
+        private api: Api,
     	public formBuilder: FormBuilder,
     	public toastNotify: ToastNotify,
     	public rootScope: GlobalService,
@@ -95,7 +98,8 @@ export class SendPage {
 
             params.subject = self.reportInfo.reportName;
             params.address = self.reportInfo.address;
-            params.date = self.reportInfo.examinationDate;
+
+            params.date = moment(self.reportInfo.examinationDate, 'YYYY-MM-DD').format('DD.MM.YYYY');
             params.examinationTime = self.reportInfo.examinationTime;
 
             params.first_name = self.userData ? self.userData.name : '';
@@ -120,9 +124,12 @@ export class SendPage {
                     });
                 });
                 console.log('params : ', params);
-                if(!self.userData) { //TODO после отправки данных
-                    self.toastNotify.error('«На экране «Личный кабинет» вы можете указать фамилию, имя, отчество и должность эксперта. Эти данные будут добавлены в отчёт.');
-                }
+                self.api.sendData(params).then((response: any) => {
+                    debugger
+                    if(!self.userData) { //TODO после отправки данных
+                        self.toastNotify.error('«На экране «Личный кабинет» вы можете указать фамилию, имя, отчество и должность эксперта. Эти данные будут добавлены в отчёт.');
+                    }
+                });
             } else {
                 console.log('params : ', params);
                 self.toastNotify.error('Отчёт не содержит данных. Отправка отчета не будет выполнена.');

@@ -5,7 +5,8 @@ import { FilesDb } from './files';
 
 @Injectable()
 export class Download {
-    baseUrl: string = 'https://nordcloudsoft.com/app/epcp/update/';
+    //baseUrl: string = 'https://nordcloudsoft.com/app/epcp/update/';
+    baseUrl: string = 'https://app.epcp.ru/update/';
     updateData: any;
     checkFileIndex: number;
     constructor(

@@ -5,23 +5,20 @@
 	<ion-button class="as-select" (click)="openDictionary($event, question)" size="default" fill="clean" *ngIf="question.controlType.indexOf('dictionary') !== -1">
 		<ion-img src="assets/images/select.png"></ion-img>
 	</ion-button>
-	<ion-label *ngIf="question.controlType.indexOf('dictionary') === -1" position="stacked" [ngClass]="{'has-dictionary': question.controlType.indexOf('dictionary') !== -1}">
-		<span [innerHTML]="question.label"></span><span class="required" *ngIf="question.required">* </span>
-	</ion-label>
 	<ion-input *ngIf="question.controlType.indexOf('textbox') !== -1" autocomplete='off' autocorrect='off' autocapitalize='off' type="text" [placeholder]="question.placeholder" [id]="question.key" formControlName="{{question.key}}" [value]="question.value" [maxlength]="question.maxLength"></ion-input>
 
-	<ion-textarea *ngIf="question.controlType.indexOf('textareabox') !== -1" [id]="question.key" [value]="question.value"  [maxlength]="question.maxLength" [placeholder]="question.placeholder" formControlName="{{question.key}}"></ion-textarea>
+	<ion-textarea rows="6" *ngIf="question.controlType.indexOf('textareabox') !== -1" [id]="question.key" [value]="question.value"  [maxlength]="question.maxLength" [placeholder]="question.placeholder" formControlName="{{question.key}}"></ion-textarea>
 	<control-messages [control]="form.controls[question.key]"></control-messages>
 	<div *ngIf="question.havePhotos">
 		<div class="photos-wrapper" *ngIf="photos[question.key] && photos[question.key].length" >
-		    <div *ngFor="let photo of photos[question.key];let idx = index" class="photo" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+		    <div *ngFor="let photo of photos[question.key];let idx = index" class="photo" [ngStyle]="{'background-image': 'url(' + photo.src + ')'}">
 		        <ion-button (click)="removePhoto(question, idx)" fill="clear">
 		            <ion-icon name="close"></ion-icon>
 		        </ion-button>
 		    </div>
 		</div>
 		<ion-button (click)="addPhoto(question)" expand="full" *ngIf="!photos[question.key] || (photos[question.key] && photos[question.key].length !== 4)" class="photos-add-button" size="default">
-			Добавить фото<ion-icon name="camera-outline"></ion-icon>
+			Добавить фото<ion-icon style="margin-left: 10px" name="camera-outline"></ion-icon>
 		</ion-button>
 	</div>
 </ion-item>

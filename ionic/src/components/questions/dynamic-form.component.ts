@@ -228,7 +228,12 @@ export class DynamicFormComponent implements OnInit {
                     if(!self.photos[self.questionPhoto.fieldName]) {
                         self.photos[self.questionPhoto.fieldName] = [];
                     }
-                    self.photos[self.questionPhoto.fieldName].push(data);
+                    debugger
+                    self.photos[self.questionPhoto.fieldName].push({
+                        src: data,
+                        width: canvas.width,
+                        height: canvas.height
+                    });
                     self.events.publish('photosChanged', {
                         photos: self.photos
                     });

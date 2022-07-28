@@ -39,7 +39,7 @@
                             <div class="text ellipsis" *ngIf="t.text">
                                 {{t.text}}
                             </div>
-                            <div *ngIf="t.photo" class="photo-inline" [ngStyle]="{'background-image': 'url(' + t.photo + ')', 'width.px': imgWidth, 'height.px': imgWidth}"></div>
+                            <div *ngIf="t.photo" class="photo-inline" [ngStyle]="{'background-image': 'url(' + t.photo.src + ')', 'width.px': imgWidth, 'height.px': imgWidth}"></div>
                         </div>
                     </div>
                     <ion-reorder slot="end"></ion-reorder>

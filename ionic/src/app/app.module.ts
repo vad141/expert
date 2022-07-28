@@ -61,10 +61,10 @@ import {
   	provide: RouteReuseStrategy,useClass: IonicRouteStrategy
   },
     Camera,
-    /*{
+    {
       provide: Camera,
       useClass: CameraMock
-    },*/
+    },
     DictionaryStorage,
     AppVersion,
     SocialSharing,

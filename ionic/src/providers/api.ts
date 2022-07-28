@@ -270,4 +270,7 @@ export class Api {
         err = new Error(['ExpertException:', message, xhrMessage].join(' '));
         console.log(err);
     }
+    sendData(params: any){
+        return this.doRequest('POST', `report`, params);
+    }
 }
